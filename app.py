@@ -41,6 +41,7 @@ def get_buscarPorCodigo(codigo):
     except Exception as e:
         return jsonify({"Erro ao executar a função 'buscarPorCodigo'"})
 
+# Função que cadastra o usuário através de um arquivo JSON.
 @app.route('/cadastrarUsuario', methods=['POST'])
 def add_cadastrarUsuario():
     try:
@@ -60,6 +61,7 @@ def add_cadastrarUsuario():
         db_conn.rollback() # Desfaz as alterações no BD.
         return jsonify({"Erro ao executar a função 'cadastrarUsuario'":str(e)})
 
+# Função que deleta o usuário no BD através de seu ID.
 @app.route('/deletarPorCodigo/<int:codigo>', methods=['DELETE'])
 def delete_deletarPorCodigo(codigo):
     try:
